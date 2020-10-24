@@ -63,7 +63,7 @@ for (i in 1:length(ref_colum)){
                           header = F)
     
     #puts the measurements column names 
-    n <- grep("mean\\()|std()", ref_colum, value = T)
+    n <- grep("-mean\\()|std\\()", ref_colum, value = T)
     names(test) <- c("activity", "subject","type", n)
     names(train) <- c("activity", "subject","type",n)
     
@@ -77,6 +77,7 @@ for (i in 1:length(ref_colum)){
 
 #average of each variable for each activity and each subject
 library(dplyr)
+library(reshape2)
 #create the second data set creating the individual average 
 for (i in 4:69)
 {
@@ -99,4 +100,6 @@ for (i in 4:69)
 
 #saves the second data set into a csv file
 write.csv(data_set_2, file = "./second_tidy_data_set.csv")
+#saves the second data set
+write.table(data_set_2, file = "./second_tidy_data_set.csv", row.names = F)
 

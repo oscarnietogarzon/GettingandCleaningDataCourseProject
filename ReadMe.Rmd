@@ -1,0 +1,26 @@
+---
+title: "ReadME"
+author: "Oscar Nieto"
+date: "10/24/2020"
+output: html_document
+---
+### Description
+The run_analysis.R script can download, unzip, load the raw data and create the different tidy data sets
+This script start defining the directory where the zip file is download and unzip
+
+Then the script load the relevant scripts into R, these scripts consists in the files that have the 
+train and test data, the subject id of each file and the activity
+
+Once all the information is on R, the script merges the data sets into the "tidy_dataset"
+
+This tidy dataset has all the information of the variables that have mean and standart deviation data
+This variables have in their names at least *mean()* or *std()* because this indicates that the measure have these type of information, *no matter if it is of different axis (X,Y,Z)*
+
+Finally, the scripts the __reshape2__ library to aggregate the information of all the variables by the mean according to the different activities and the different voluntiers
+
+The second and final created data set is called "data_set_2" and is exported as a csv file
+
+#### CodeBook
+In the CodeBook.rmd a small description of each variable with the __minimum and maximum__ value obtained is presented
+
+
